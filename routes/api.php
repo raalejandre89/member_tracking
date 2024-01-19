@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/team/{id}/members', [\App\Http\Controllers\ApiControllers\TeamController::class, 'getMembers']);
+Route::get('/project/{id}/members', [\App\Http\Controllers\ApiControllers\ProjectController::class, 'getMembers']);
+Route::post('/project/change-members', [\App\Http\Controllers\ApiControllers\ProjectController::class, 'changeMembers']);
+Route::post('/member/change-team', [\App\Http\Controllers\ApiControllers\MemberController::class, 'changeTeam']);

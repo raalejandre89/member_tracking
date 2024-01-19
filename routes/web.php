@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\WebControllers\MemberController;
+use App\Http\Controllers\WebControllers\TeamController;
+use App\Http\Controllers\WebControllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +17,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+Route::resource('/member', MemberController::class);
+Route::resource('/team', TeamController::class);
+Route::resource('/project', ProjectController::class);
